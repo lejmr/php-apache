@@ -10,8 +10,8 @@ RUN apt-get update \
                           libjpeg-turbo8 \
                           libcurl3 \
                           libfreetype6 \
-                          apache2-suexec-custom
-    && apt-get clean\
+                          apache2-suexec-custom \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 

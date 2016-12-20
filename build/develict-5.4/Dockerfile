@@ -2,8 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER Miloš Kozák <milos.kozak@lejmr.com>
 
 RUN apt-get update \
-    && apt-get -y install netcat \
-                          apache2 \
+    && apt-get -y install apache2 \
                           libapache2-mod-fcgid \
                           libxslt1.1 \
                           libpq5 \
@@ -12,9 +11,8 @@ RUN apt-get update \
                           libcurl3 \
                           libfreetype6 \
                           apache2-suexec-custom
-                          
-#    && apt-get clean\
-#    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean\
+    && rm -rf /var/lib/apt/lists/*
 
 
 COPY php-5.4.tar.bz2 /tmp

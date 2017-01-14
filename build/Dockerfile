@@ -10,6 +10,8 @@ ENV APACHE_LOG_DIR /var/log/apache2
 RUN /usr/sbin/a2enmod rewrite
 COPY default-site.conf /etc/apache2/sites-enabled/000-default.conf
 
+COPY httpd-foreground /usr/bin/
+RUN chmod +x /usr/bin/httpd-foreground
 
 EXPOSE 80
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["/usr/bin/httpd-foreground"]

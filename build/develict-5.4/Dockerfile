@@ -35,5 +35,8 @@ COPY default-site.conf /etc/apache2/sites-enabled/000-default.conf
 COPY apache-php.conf /etc/apache2/conf-enabled/fcgid_easyscp.conf
 RUN chown web:web /var/www/fcgi -R
 
+COPY httpd-foreground /usr/bin/
+RUN chmod +x /usr/bin/httpd-foreground
+
 EXPOSE 80
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["/usr/bin/httpd-foreground"]
